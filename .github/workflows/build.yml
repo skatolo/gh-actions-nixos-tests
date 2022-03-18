@@ -5,6 +5,9 @@ jobs:
   my-job:
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 1
       - uses: actions/setup-python@v3
         with:
           python-version: '3.x'
@@ -13,3 +16,5 @@ jobs:
           extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
       - name: kvm?
         run: '[ -e /dev/kvm ] && echo "yes kvm!" || echo "no kvm :("'
+      - name: NixOS test
+        run: nix build .#checks.x86_64-linux.postgres
