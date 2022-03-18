@@ -17,4 +17,4 @@ jobs:
       - name: kvm?
         run: '[ -e /dev/kvm ] && echo "yes kvm!" || echo "no kvm :("'
       - name: NixOS test
-        run: nix build .#checks.x86_64-linux.postgres
+        run: nix build -L .#checks.x86_64-linux.postgres
