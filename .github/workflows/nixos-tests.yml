@@ -1,8 +1,8 @@
-name: build
+name: nixos-tests
 
 on: push
 jobs:
-  my-job:
+  nixos-test:
     runs-on: actuated
     steps:
       - uses: actions/checkout@master

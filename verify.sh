@@ -21,4 +21,6 @@ check_kvm() {
     fi
 }
 
+egrep -c '(vmx|svm)' /proc/cpuinfo
+
 check_kvm
