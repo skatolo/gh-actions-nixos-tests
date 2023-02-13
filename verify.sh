@@ -1,5 +1,10 @@
 #!/bin/bash
 
+SUDO=sudo
+if [ "$(id -u)" -eq 0 ]; then
+  SUDO=
+fi
+
 has_apt_get() {
   [ -n "$(command -v apt-get)" ]
 }
