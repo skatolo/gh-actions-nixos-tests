@@ -14,7 +14,5 @@ jobs:
       - uses: cachix/install-nix-action@v16
         with:
           extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
-      - name: kvm?
-        run: ./verify.sh
       - name: NixOS test
         run: nix build -L .#checks.x86_64-linux.postgres
