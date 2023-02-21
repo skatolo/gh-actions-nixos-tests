@@ -15,4 +15,6 @@ jobs:
         with:
           extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
       - name: NixOS test
-        run: nix build -L .#checks.x86_64-linux.postgres
+        run: |
+          sudo chmod o+rw /dev/kvm
+          nix build -L .#checks.x86_64-linux.postgres
